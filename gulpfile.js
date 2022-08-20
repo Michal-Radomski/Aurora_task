@@ -66,6 +66,7 @@ function browser_Sync() {
 function watchFiles() {
   watch(files.sassPath, sassTask);
   watch(files.jsPath, jsTask);
+  watch(files.htmlPath).on("change", browserSync.reload);
 }
 
 // Export
