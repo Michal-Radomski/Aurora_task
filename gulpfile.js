@@ -2,7 +2,7 @@
 // CLI version: 2.3.0
 // Local version: 4.0.2
 
-const {src, dest, watch, series, parallel} = require("gulp");
+const {src, dest, watch, parallel} = require("gulp");
 
 const sourcemaps = require("gulp-sourcemaps");
 const sass = require("gulp-sass")(require("sass"));
@@ -10,28 +10,63 @@ const uglify = require("gulp-uglify");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
+const rename = require("gulp-rename");
+const browserSync = require("browser-sync").create();
 
 // File paths
 const files = {
   sassPath: "src/sass/**/*.scss",
   jsPath: "src/js/**/*.js",
+  htmlPath: "dist/index.html",
 };
 
+// Sass to CSS
 function sassTask() {
   return src(files.sassPath)
-    .pipe(sourcemaps.init()) // Initialize sourcemaps first
+    .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: "compressed"})) // Compile SCSS to CSS; empty object causes error
-    .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
-    .pipe(sourcemaps.write(".")) // write sourcemaps file in current directory
-    .pipe(dest("dist")); // Put final CSS in dist folder
+    .pipe(
+      postcss([
+        autoprefixer({
+          cascade: false,
+        }),
+        cssnano(),
+      ])
+    ) // PostCSS plugins
+    .pipe(rename({suffix: ".min"}))
+    .pipe(sourcemaps.write("."))
+    .pipe(dest("dist"))
+    .pipe(browserSync.stream());
 }
 
+// JS function
 function jsTask() {
-  return src([files.jsPath]).pipe(uglify()).pipe(dest("dist"));
+  return src([files.jsPath])
+    .pipe(uglify())
+    .pipe(
+      rename({
+        suffix: ".min",
+      })
+    )
+    .pipe(dest("dist"))
+    .pipe(browserSync.stream());
 }
 
-function watchTask() {
-  watch([files.sassPath, files.jsPath], parallel(sassTask, jsTask));
+// Browser Sync
+function browser_Sync() {
+  browserSync.init({
+    server: {
+      baseDir: "./dist",
+    },
+    port: 3000,
+  });
 }
 
-exports.default = series(parallel(sassTask, jsTask), watchTask);
+// Watch files
+function watchFiles() {
+  watch(files.sassPath, sassTask);
+  watch(files.jsPath, jsTask);
+}
+
+// Export
+exports.default = parallel(watchFiles, browser_Sync);
