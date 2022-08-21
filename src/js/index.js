@@ -6,16 +6,16 @@ document.querySelector(".form--input").addEventListener("submit", function (even
   console.log(nameInput.value);
 });
 
-// Open/ Close menu
+// Open/ Close menu + button animation
 const menu = document.querySelectorAll(".menu--navigation > .link");
-// console.log({menu});
+const bars = document.querySelectorAll(".icon--hamburger > .bar");
 function openCloseMenu() {
   menu.forEach((elem) => elem.classList.toggle("responsive"));
+  bars.forEach((elem) => elem.classList.toggle("active"));
 }
 
 // Close menu on menu link click
 menu.forEach((elem) => elem.addEventListener("click", removeResponsive));
-
 function removeResponsive() {
   menu.forEach((elem) => elem.classList.remove("responsive"));
 }
