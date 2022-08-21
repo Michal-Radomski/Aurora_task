@@ -19,9 +19,30 @@
       }
     }
   }
+
+  div.input--bar {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    .input--cart {
+      margin-top: 20px;
+      cursor: pointer;
+      order: 3;
+    }
+    .input--input {
+      margin-left: 10%;
+      flex-grow: 0.5;
+    }
+  }
 }
 
 @media only screen and (min-width: 1025px) {
+  .left--bordered {
+    border-left: 1px solid lightgray;
+  }
   div.bar--top {
     justify-content: space-between;
     gap: 1rem;
@@ -44,5 +65,9 @@
         }
       }
     }
+  }
+
+  div.input--bar {
+    margin-right: 3rem;
   }
 }
