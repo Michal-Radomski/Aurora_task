@@ -1,0 +1,48 @@
+@import "definitions";
+
+// MediaQueries
+@media only screen and (min-width: 678px) {
+  div.bar--top {
+    .bar--inside {
+      ul.nav--bar {
+        li {
+          a {
+            img {
+              height: 20px;
+              width: auto;
+            }
+            span.info--text {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  div.bar--top {
+    justify-content: space-between;
+    gap: 1rem;
+    .bar--inside {
+      width: unset;
+      justify-content: flex-start;
+      ul.nav--bar {
+        li {
+          width: unset;
+          padding: 1rem;
+          a {
+            img {
+              height: 18px;
+              width: auto;
+            }
+            span.info--text {
+              font-size: 90%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

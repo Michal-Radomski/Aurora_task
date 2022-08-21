@@ -55,6 +55,7 @@ function jsTask() {
 // Browser Sync
 function browser_Sync() {
   browserSync.init({
+    notify: false,
     open: false,
     server: {
       baseDir: "./dist",
