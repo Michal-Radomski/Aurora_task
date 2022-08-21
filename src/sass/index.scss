@@ -91,10 +91,36 @@ body {
     }
   }
   .input--cart {
-    width: 155px;
-    height: 84px;
+    margin-top: 41px;
+    width: auto;
+    height: 41px;
     border: 1px solid red;
     grid-column: 3 / span 1;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    img.cart {
+      height: 41px;
+    }
+    .cart--number {
+      font-size: 12px;
+      line-height: 24px;
+      background: $primary-color;
+      color: $text-white;
+      padding: 4px;
+      width: 25px;
+      height: 25px;
+      vertical-align: bottom;
+      margin-left: -22px;
+      padding-left: 9px;
+      padding-right: 9px;
+      border-radius: 50%;
+      text-align: center;
+    }
+    p {
+      font-size: 80%;
+      margin-left: 0.5rem;
+    }
   }
   .input--input {
     grid-column: 1 / span 3;
@@ -113,7 +139,8 @@ body {
         border: none;
         width: 16px;
         height: 16px;
-        img {
+        cursor: pointer;
+        img.search {
           width: 100%;
           height: auto;
         }
