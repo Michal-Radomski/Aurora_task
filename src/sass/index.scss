@@ -15,8 +15,9 @@ body {
 
 // Styles
 .bar--top {
+  z-index: 9;
   font-size: 80%;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -69,6 +70,52 @@ body {
           span.info--text {
             color: $text_white;
           }
+        }
+      }
+    }
+  }
+}
+
+.input--bar {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 1rem;
+  .input--image {
+    width: 155px;
+    height: 84px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .input--cart {
+    width: 155px;
+    height: 84px;
+    border: 1px solid red;
+    grid-column: 3 / span 1;
+  }
+  .input--input {
+    grid-column: 1 / span 3;
+    form {
+      border-bottom: 1px solid grey;
+      input {
+        width: calc(100% - 20px);
+        border: none;
+        padding: 0.5rem;
+        &:focus {
+          outline: none;
+        }
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        width: 16px;
+        height: 16px;
+        img {
+          width: 100%;
+          height: auto;
         }
       }
     }

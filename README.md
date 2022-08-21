@@ -2,7 +2,7 @@
 
 Aurora Creation frontend task
 
-Icons were taken from [https://www.flaticon.com](https://www.flaticon.com)
+Icons were taken from [https://www.flaticon.com](https://www.flaticon.com) and edited in Gimp.
 
 To install dependencies -> type: `npm i`
 
