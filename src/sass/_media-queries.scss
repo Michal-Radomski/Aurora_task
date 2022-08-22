@@ -50,7 +50,6 @@
       text-transform: uppercase;
       color: $text-color;
       text-decoration: none;
-      font-size: 100%;
       padding: 1rem 0.9rem;
       text-decoration: none;
       font-size: 85%;
@@ -69,6 +68,10 @@
 
   div.icon--hamburger {
     display: none;
+  }
+
+  .hidden {
+    visibility: visible !important;
   }
 }
 
