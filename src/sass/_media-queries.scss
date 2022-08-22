@@ -46,18 +46,15 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     a.link {
-      display: block;
-      text-transform: uppercase;
-      color: $text-color;
-      text-decoration: none;
+      @include link--base--style;
       padding: 1rem 0.9rem;
-      text-decoration: none;
       font-size: 85%;
       font-weight: 600;
       &:hover {
         color: $primary-color;
         transform: translateY(-3px);
         transition-duration: 0.4s;
+        transition-delay: 0;
       }
       &:active,
       &:visited {

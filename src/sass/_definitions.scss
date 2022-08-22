@@ -8,3 +8,11 @@ $text_white: white;
 $primary-color: #ecc7d0;
 $text-color: rgb(24, 18, 45);
 $hover_color: #eb2f69;
+
+// Mixins
+@mixin link--base--style {
+  display: block;
+  text-transform: uppercase;
+  color: $text-color;
+  text-decoration: none;
+}

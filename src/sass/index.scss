@@ -162,20 +162,17 @@ body {
     display: none;
   }
   a.responsive {
+    @include link--base--style;
     z-index: 9;
     text-align: center;
-    display: block;
-    text-transform: uppercase;
-    color: $text-color;
-    text-decoration: none;
-    font-size: 115%;
-    padding: 1rem 0.5rem;
-    text-decoration: none;
+    font-size: 110%;
+    padding: 1rem 0.3rem;
     font-weight: 700;
     &:hover {
       color: $hover_color;
       transform: translate(3px, -3px);
-      transition-duration: 0.4s;
+      transition-duration: 0.3s;
+      transition-delay: 0.1s;
     }
   }
 }
