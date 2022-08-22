@@ -162,15 +162,20 @@ body {
     display: none;
   }
   a.responsive {
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
     display: block;
     text-align: center;
+    text-decoration: none;
   }
 }
 .icon--hamburger {
   display: block;
   position: absolute;
   right: 1rem;
-  top: -1rem;
+  top: -2.5rem;
   cursor: pointer;
   &:hover {
     transform: translateY(-3px);
@@ -197,4 +202,12 @@ body {
 
 .active:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
+}
+
+.main--section {
+  margin: 1rem;
+  padding-top: 1rem;
+  p {
+    margin-top: 2rem;
+  }
 }
